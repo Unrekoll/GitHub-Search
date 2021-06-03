@@ -2,25 +2,16 @@
   <div class="wrapper-content wrapper-content--fixed">
     <section>
       <div class="container">
-
-        <!-- erorrs -->
         <div class="error" v-if="error" style="margin-bottom: 20px;">
           <p> {{ error }} </p>
         </div>
-
-        <!-- search -->
         <search
           :value="search"
           placeholder="Type username..."
           @search="search = $event"/>
-
-        <!-- buttons -->
         <button v-if="!repos" class="btn btnPrimary" @click="getRepos">Search!</button>
         <button v-else class="btn btnPrimary" @click="getRepos">Search Again!</button>
-
-        <!-- wrapper -->
         <div class="repos__wrapper" v-if="repos">
-          <!-- item -->
           <div class="repos-item" v-for="repo in repos" :key="repo.id">
             <div class="repos-info">
               <a class="link" target="_blank" :href="repo.html_url">{{ repo.name }}</a>
